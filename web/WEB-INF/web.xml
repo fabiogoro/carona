@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>CadastroOfertaCaronaServlet</servlet-name>
+        <servlet-class>control.CadastroOfertaCaronaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscaCaronaServlet</servlet-name>
+        <servlet-class>control.BuscaCaronaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastroUserServlet</servlet-name>
+        <servlet-class>control.CadastroUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastroOfertaCaronaServlet</servlet-name>
+        <url-pattern>/CadastroOfertaCaronaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaCaronaServlet</servlet-name>
+        <url-pattern>/BuscaCaronaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroUserServlet</servlet-name>
+        <url-pattern>/CadastroUserServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/erro.jsp</location>
+    </error-page>
+</web-app>
