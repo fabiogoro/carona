@@ -30,13 +30,13 @@ public class CaronaDAO {
         
         try {
             conn = this.conn;
-            st = conn.createStatement();
-            st.executeQuery("SELECT \"cadastraUsuario\"('"+u.getIdUser()+"','"+u.getNome()+"','"+u.getLink()+"')");
-//            CallableStatement cstmt = conn.prepareCall("{call dbo.CadastraUsuario(?, ?, ?)}");
-//            cstmt.setString(1, u.getIdUser());
-//            cstmt.setString(2, u.getNome());
-//            cstmt.setString(3, u.getLink());
-//            cstmt.execute();
+//            st = conn.createStatement();
+//            st.executeQuery("SELECT \"cadastraUsuario\"('"+u.getIdUser()+"','"+u.getNome()+"','"+u.getLink()+"')");
+            CallableStatement cstmt = conn.prepareCall("{call dbo.CadastraUsuario(?, ?, ?)}");
+            cstmt.setString(1, u.getIdUser());
+            cstmt.setString(2, u.getNome());
+            cstmt.setString(3, u.getLink());
+            cstmt.execute();
         } catch (SQLException sqle) {
             throw new CaronaDAOException("Erro ao inserir dados " + sqle);
         } finally {
@@ -51,7 +51,7 @@ public class CaronaDAO {
         
         try {
             conn = this.conn;
-            CallableStatement cstmt = conn.prepareCall("{call dbo.CadastraOfertaCarona(?, ?, ?, ?)}");
+            CallableStatement cstmt = conn.prepareCall("{call dbo.CadastraOferta(?, ?, ?, ?)}");
             cstmt.setString(1, c.getIDUser());
             cstmt.setString(2, c.getDestino());
             cstmt.setString(3, c.getOrigem());

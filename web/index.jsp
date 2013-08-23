@@ -83,7 +83,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                             <div class="dropdown-menu">
                                 <div role="presentation" class="dropdown-header">Entre com Facebook</div>
-                                <div class="fb-login-button" size="large" autologoutlink="true" data-show-faces="false" data-width="200" data-max-rows="1">
+                                <div class="fb-login-button" size="large" data-show-faces="false" data-width="200" data-max-rows="1">
                                 </div>
 
                                 <div class="divider"></div>

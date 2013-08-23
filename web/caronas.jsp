@@ -37,13 +37,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Vai de Carona!</a>
+                    <a class="navbar-brand" href="index_logged.jsp">Vai de Carona!</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="index_logged.jsp">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastro <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -86,7 +86,7 @@
                                     <form action="BuscaCaronaServlet" role="form">
                                         <div class="form-group">
                                             <label class="sr-only" for="partida">Saindo de...</label>
-                                            <select class="form-control" id="partida">
+                                            <select name="origem" class="form-control" id="partida">
                                                 <option>Saindo de...</option>
                                                 <option>São Paulo</option>
                                                 <option>Sorocaba</option>
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="destino">Indo para...</label>
-                                            <select class="form-control" id="destino"  placeholder="Indo para...">
+                                            <select name="destino" class="form-control" id="destino"  placeholder="Indo para...">
                                                 <option>Indo para...</option>
                                                 <option>Sorocaba</option>
                                                 <option>Campinas</option>
@@ -106,7 +106,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="Search">
+                                            <input name="data" type="date" class="form-control" placeholder="Search">
                                         </div>
                                         <button type="submit" class="btn btn-success">Submit</button>
                                     </form>
