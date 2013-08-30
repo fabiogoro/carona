@@ -1,4 +1,5 @@
 <%@include file="logado.jspf"  %>
+<%@page import="model.Carona"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
@@ -64,33 +65,21 @@
                 <strong>Olá! Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! Responda essa <a href="#">pesquisa de opinião.</a>
             </div>
 
-
             <div class="body-content">
                 <div class="row">
                     <div class="col-lg-3"></div>
                     <div class="col-lg-6">
 
-                       <h2> <%=request.getParameter("origem") %> - <%=request.getParameter("destino")%> (<%=request.getParameter("data") %>)</h2>
-                        <%
-                            List<Usuario> listaUsuario = (List<Usuario>) request.getAttribute("usuarios");
-                            if(listaUsuario!=null){
-                                Iterator<Usuario> i = listaUsuario.iterator();
-                                while(i.hasNext()){
-                                    Usuario user = i.next();
-
-                        %>
-                        <p>O usuário <b><%=user.getNome()%> </b> oferece uma carona. <a class="btn btn-xs btn-default" href="<%=user.getLink()%>">Ver facebook &raquo;</a></p>
-                        <% }} else { %>
-                            <p>Nenhum resultado encontrado!</p>
-                        <% } %>
+                        <h2>Você já cadastrou essa carona, não foi?</h2>
+                        <p>Aguarde a resposta dos usuários! Eles já sabem da sua carona!</p>
                     </div>
                     <div class="col-lg-3"></div>
                 </div>
 
             </div><!-- /.body-content -->
 
-        </div>
-                    
+        </div> <!-- /container -->
+        
         <div class="footer container">
             <p>&copy; Vai de Carona (Beta) 2013</p>
         </div>

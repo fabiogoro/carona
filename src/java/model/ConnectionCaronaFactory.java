@@ -11,7 +11,7 @@ import java.sql.Statement;
 public class ConnectionCaronaFactory {
 
     public static Connection getConnection() throws CaronaDAOException {
-            String usuario = "carona", senha = "317357Integrado";
+            String usuario = "fabio", senha = "317357";
             return getConnection(usuario, senha);
     }
     
@@ -24,8 +24,8 @@ public class ConnectionCaronaFactory {
 //            Connection conn = DriverManager.getConnection(url, username, password);
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
 //            String conexao = "jdbc:sqlserver://shelton.sor.ufscar.br;database=labbd02";
-//            String conexao = "jdbc:sqlserver://localhost;database=carona";
-            String conexao = "jdbc:sqlserver://b7n4ps4aa0.database.windows.net;database=carona";
+            String conexao = "jdbc:sqlserver://localhost;database=carona";
+//            String conexao = "jdbc:sqlserver://b7n4ps4aa0.database.windows.net;database=carona";
             Connection conn = DriverManager.getConnection(conexao, usuario, senha);
             return conn;
         } catch (Exception e) {

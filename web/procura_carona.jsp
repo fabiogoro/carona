@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="oferece_carona.jsp">Oferecer</a></li>
-                    <li><a href="procura_carona.jsp">Procurar</a></li>
+                    <li class="active"><a href="procura_carona.jsp">Procurar</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -62,15 +62,15 @@
             </div><!-- /.navbar-collapse -->
         </div>
 
-        <div class="alert alert-info">
+        <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Olá! Para onde você vai?</strong> Vamos tentar encontrar sua carona!
+            <strong>Olá! Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! Responda essa <a href="#">pesquisa de opinião.</a>
         </div>
 
 
         <div class="body-content">
             <div class="col-lg-3"></div>
-            <form class="form-horizontal col-lg-6" id="form" role="form">
+            <form action="BuscaCaronaServlet" class="form-horizontal col-lg-6" id="form" role="form">
                 <div class="form-group">
                     <label class="sr-only" for="partida">Saindo de...</label>
                     <select name="origem" class="form-control" id="partida">
@@ -150,25 +150,7 @@
                 <div class="form-group">
                     <input name="data" type="text" class="form-control" placeholder="dd/mm/aaaa" id="datepicker">
                 </div>
-                <div class="btn-group pull-right">
-                    <a class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" href="#">
-                        Eu estou <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a onclick="
-                                    $('#form').attr('action','/BootstrapSimple/BuscaCaronaServlet'); 
-                                    envia();
-                                    return false;" 
-                                href="#">Procurando Carona
-                            </a>
-                        </li>
-                        <li><a onclick="
-                                    $('#form').attr('action','/BootstrapSimple/CadastroOfertaCaronaServlet'); 
-                                    envia();
-                                    return false;" 
-                                href="#">Oferecendo Carona</a></li>
-                    </ul>
-                </div>
+                <button type="submit" class="btn btn-success btn-lg pull-right" onclick="envia(); return false;">Procurar Carona</button>
             </form>
             <div class="col-lg-3"></div>
 

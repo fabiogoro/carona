@@ -8,15 +8,11 @@ package model;
  *
  * @author Fabio
  */
-public class OfertaCarona {
-    private String IDUser;
+public class Carona {
+    private String usuario;
     private String destino;
     private String origem;
     private String data;
-
-    public String getIDUser() {
-        return this.IDUser;
-    }
 
     public String getDestino() {
         return this.destino;
@@ -30,10 +26,6 @@ public class OfertaCarona {
         return this.data;
     }
 
-    public void setIDUser(String IDUser) {
-        this.IDUser = IDUser;
-    }
-
     public void setDestino(String destino) {
         this.destino = destino;
     }
@@ -45,7 +37,13 @@ public class OfertaCarona {
     public void setData(String dataString) {
         this.data = dataString;
     }
-    
-    
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String nomeUsuario) {
+        this.usuario = nomeUsuario;
+    }
     
 }

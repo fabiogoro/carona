@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('#hide').hide();
     $.ajaxSetup({ cache: true });
     $.getScript('//connect.facebook.net/en_UK/all.js', function(){
         FB.init({
@@ -6,43 +7,65 @@ $(document).ready(function() {
             channelUrl: '//localhost:8084/BootstrapSimple/index.jsp',
             xfbml      : true  // parse XFBML
         });
-        
-        FB.Event.subscribe('auth.login', function(response){
-            document.location = 'index_logged.jsp'; 
-        }, {scope: 'email'});
-        
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                recuperaDadosUsuario();
-            } else {
-                if(logado === true){
-                    document.location = 'index.jsp';
-                    alert('Você não está conectado.');
-                }
-            }
-        });
-        FB.getLoginStatus();
     });
 });
 
+function interligar(){
+    FB.getLoginStatus(login);
+}
+
+function login(response){
+    if(response.status === 'connected'){
+        FB.api('/me', function(resp) {
+            $.ajax({
+                type: "GET",
+                url: "VerificaFacebookServlet",
+                dataType: "html",
+                data: {link: resp.link}
+            }).done(function(data){
+                if(data === 'ok'){
+                    $('#hide').show();
+                    $('#nomeUsuario').html('<a href="' + resp.link + '">Olá, ' + resp.name + '.</a>');
+                    $('#nome').val(resp.name);
+                    $('#link').val(resp.link);
+                } else {
+                    $('#nomeUsuario').append('<p>Esse facebook já está cadastrado! Esqueceu sua senha?</p>');
+                }
+            });
+        });
+    } else {
+        FB.login();
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+            if(response.status === 'connected'){
+                FB.api('/me', function(resp) {
+                    $.ajax({
+                        type: "GET",
+                        url: "VerificaFacebookServlet",
+                        dataType: "html",
+                        data: {link: resp.link}
+                    }).done(function(data){
+                        if(data === 'ok'){
+                            $('#hide').show();
+                            $('#nomeUsuario').html('<a href="' + resp.link + '">Olá, ' + resp.name + '.</a>');
+                            $('#nome').val(resp.name);
+                            $('#link').val(resp.link);
+                        } else {
+                            $('#nomeUsuario').append('<p>Esse facebook já está cadastrado! Esqueceu sua senha?</p>');
+                        }
+                    });
+                });
+            } else {
+                alert(response.status);
+            }
+        });
+    }
+}
+
 function logout(){
-    FB.logout();
-}
-
-function recuperaDadosUsuario(){
-    FB.api('/me', function(response) {
-        tentaCadastrarUsuario(response.id, response.name, response.link);
-        $('#logged-user').html(response.name + '.');
-        $('#idUser1').val(response.id);
-    });
-}
-
-function tentaCadastrarUsuario(id, nome, link){
     $.ajax({
         type: "GET",
-        url: "CadastroUserServlet",
-        dataType: "html",
-        data: {id: id, nome: nome, link: link}
+        url: "LogoutServlet",
+        dataType: "html"
     });
 }
 

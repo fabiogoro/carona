@@ -64,7 +64,7 @@
 
         <div class="alert alert-info">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Olá! Para onde você vai?</strong> Vamos tentar encontrar sua carona!
+            <strong>Seu cadastro foi efetuado!</strong> Utilize o menu acima para navegar no site. Abaixo temos algumas sugestões para você.
         </div>
 
 

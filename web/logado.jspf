@@ -1,0 +1,10 @@
+<%@page import="model.Usuario"%>
+<% 
+    HttpSession sessao = request.getSession();
+    Usuario u = (Usuario)sessao.getAttribute("usuario");
+    if(u == null){
+        ServletContext context= getServletContext();
+        RequestDispatcher rd= context.getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
+    }
+%>

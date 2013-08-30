@@ -8,23 +8,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.CaronaDAOException;
-import model.Carona;
 import model.CaronaDAO;
+import model.CaronaDAOException;
 import model.Usuario;
 
 /**
  *
  * @author Fabio
  */
-public class CadastroOfertaCaronaServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -38,30 +35,9 @@ public class CadastroOfertaCaronaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        String nome = ((Usuario) session.getAttribute("usuario")).getUsuario();
-        String origem = request.getParameter("origem");
-        String destino = request.getParameter("destino");
-        String dataString = request.getParameter("data");
-        Carona c = new Carona();
-        c.setUsuario(nome);
-        c.setOrigem(origem);
-        c.setDestino(destino);
-        c.setData(dataString);
-        try {
-            CaronaDAO dao = new CaronaDAO();
-            dao.connect();
-            dao.cadastraCarona(c);
-            ServletContext context= getServletContext();
-            RequestDispatcher rd= context.getRequestDispatcher("/cadastro_ok.jsp");
-            request.setAttribute("carona", c);
-            rd.forward(request, response);
-        } catch (CaronaDAOException ex) {
-            System.out.println(ex.info());
-            Logger.getLogger(CadastroOfertaCaronaServlet.class.getName()).log(Level.SEVERE, null, ex);
-            response.sendRedirect("erro_carona.jsp");
-        }
+        session.invalidate();
+        response.sendRedirect("index.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,4 +1,5 @@
-<%@page import="model.OfertaCarona"%>
+<%@include file="logado.jspf"  %>
+<%@page import="model.Carona"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
@@ -44,80 +45,13 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index_logged.jsp">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastro <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="col-lg-12">
-                                    <form action="CadastroOfertaCaronaServlet" role="form">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="partida">Saindo de...</label>
-                                            <select name="origem" class="form-control" id="partida">
-                                                <option>Saindo de...</option>
-                                                <option>São Paulo</option>
-                                                <option>Sorocaba</option>
-                                                <option>Campinas</option>
-                                                <option>São Carlos</option>
-                                                <option>Bauru</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="destino">Indo para...</label>
-                                            <select name="destino" class="form-control" id="destino"  placeholder="Indo para...">
-                                                <option>Indo para...</option>
-                                                <option>Sorocaba</option>
-                                                <option>Campinas</option>
-                                                <option>São Carlos</option>
-                                                <option>Bauru</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input name="data" type="date" class="form-control" placeholder="Search">
-                                        </div>
-                                        <input type="hidden" name="idUser" id="idUser1">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Busca <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="col-lg-12">
-                                    <form action="BuscaCaronaServlet" role="form">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="partida">Saindo de...</label>
-                                            <select name="origem" class="form-control" id="partida">
-                                                <option>Saindo de...</option>
-                                                <option>São Paulo</option>
-                                                <option>Sorocaba</option>
-                                                <option>Campinas</option>
-                                                <option>São Carlos</option>
-                                                <option>Bauru</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="destino">Indo para...</label>
-                                            <select name="destino" class="form-control" id="destino"  placeholder="Indo para...">
-                                                <option>Indo para...</option>
-                                                <option>Sorocaba</option>
-                                                <option>Campinas</option>
-                                                <option>São Carlos</option>
-                                                <option>Bauru</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input name="data" type="date" class="form-control" placeholder="Search">
-                                        </div>
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
+                        <li class="active"><a href="oferece_carona.jsp">Oferecer</a></li>
+                        <li><a href="procura_carona.jsp">Procurar</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bem-vindo, <b id="logged-user">Usuário</b> <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Bem-vindo, <b id="logged-user"><%=u.getNome()%></b> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="index.jsp" onclick="logout();">Logout</a></li>
                             </ul>
@@ -126,32 +60,32 @@
                 </div><!-- /.navbar-collapse -->
             </div>
 
-            <div class="alert alert-info">
+            <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Olá! Para onde você vai?</strong> Utilize o menu acima, ou procure nos seu favorito aqui em baixo!
+                <strong>Olá! Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! Responda essa <a href="#">pesquisa de opinião.</a>
             </div>
-
 
             <div class="body-content">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
 
                         <h2>Cadastro efetuado!</h2>
                         <%
-                            OfertaCarona c = (OfertaCarona) request.getAttribute("carona");
+                            Carona c = (Carona) request.getAttribute("carona");
                         %>
-                        <p>Você cadastrou uma carona para o dia <b><%=c.getData()%> </b>, saindo de <%=c.getOrigem()%>, indo para <%=c.getDestino()%></p>
+                        <p>Você cadastrou uma carona para o dia <b><%=c.getData()%></b>, saindo de <%=c.getOrigem()%>, indo para <%=c.getDestino()%>.</p>
                     </div>
+                    <div class="col-lg-3"></div>
                 </div>
 
             </div><!-- /.body-content -->
 
-            <!-- Site footer -->
-            <div class="footer">
-                <p>&copy; Vai de Carona 2013</p>
-            </div>
-
         </div> <!-- /container -->
+        
+        <div class="footer container">
+            <p>&copy; Vai de Carona (Beta) 2013</p>
+        </div>
 
         <script src="js/holder.js"></script>
         <script src="js/bootstrap.min.js"></script>

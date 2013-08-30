@@ -12,9 +12,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.CaronaDAO;
 import model.CaronaDAOException;
-import model.OfertaCarona;
+import model.Carona;
 import model.Usuario;
 
 /**
@@ -38,11 +39,13 @@ public class CadastroUserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String contentTable = "";
-        String idUser = request.getParameter("id");
         String nome = request.getParameter("nome");
         String link = request.getParameter("link");
+        String senha = request.getParameter("senha");
+        String usuario = request.getParameter("usuario");
         Usuario u = new Usuario();
-        u.setIdUser(idUser);
+        u.setUsuario(usuario);
+        u.setSenha(senha);
         u.setLink(link);
         u.setNome(nome);
         try {
@@ -51,11 +54,16 @@ public class CadastroUserServlet extends HttpServlet {
             dao.cadastraUsuario(u);
             contentTable += "Cadastrado.";
             out.print(contentTable);
+            HttpSession session = request.getSession();
+            session.setAttribute("usuario", u);
+            session.setMaxInactiveInterval(600);
+            response.sendRedirect("primeiro_acesso.jsp");
         } catch (CaronaDAOException ex) {
             System.out.println(ex.info());
             Logger.getLogger(CadastroOfertaCaronaServlet.class.getName()).log(Level.SEVERE, null, ex);
             contentTable += "Erro.";
             out.print(contentTable);
+            response.sendRedirect("erro_cadastro.jsp");
         }
     }
 

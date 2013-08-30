@@ -12,6 +12,8 @@ public class Usuario {
     private String idUser;
     private String nome;
     private String link;
+    private String usuario;
+    private String senha;
 
     public String getIdUser() {
         return idUser;
@@ -35,6 +37,22 @@ public class Usuario {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     
