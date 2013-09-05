@@ -15,17 +15,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.CaronaDAOException;
 import model.Carona;
 import model.CaronaDAO;
+import model.CaronaDAOException;
 import model.Usuario;
 
 /**
  *
  * @author Fabio
  */
-public class CadastroOfertaCaronaServlet extends HttpServlet {
+public class CaronasIndexServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -40,47 +39,19 @@ public class CadastroOfertaCaronaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        String nome = request.getParameter("nome");
-        String link = request.getParameter("link");
-        String origem = request.getParameter("origem");
-        String destino = request.getParameter("destino");
-        String dataString = request.getParameter("data");
-        String horario = request.getParameter("horario");
-        Carona c = new Carona();
-        Usuario u = new Usuario();
-        u.setUsuario(link);
-        u.setLink(link);
-        u.setNome(nome);
-        c.setUsuario(u);
-        c.setOrigem(origem);
-        c.setDestino(destino);
-        c.setData(dataString);
-        c.setHorario(horario);
+        PrintWriter out = response.getWriter();
         try {
             CaronaDAO dao = new CaronaDAO();
             dao.connect();
-            List<Carona> lista = dao.cadastraCarona(c);
+            List<Carona> listaCarona = dao.ultimasCaronas();
             ServletContext context= getServletContext();
-            RequestDispatcher rd= context.getRequestDispatcher("/cadastro_ok.jsp");
-            request.setAttribute("carona", c);
-            request.setAttribute("caronas", lista);
+            RequestDispatcher rd= context.getRequestDispatcher("/index2.jsp");
+            request.setAttribute("caronas", listaCarona);
             rd.forward(request, response);
         } catch (CaronaDAOException ex) {
-            System.out.println(ex.info());
-            Logger.getLogger(CadastroOfertaCaronaServlet.class.getName()).log(Level.SEVERE, null, ex);
-            CaronaDAO dao = new CaronaDAO();
-            try {
-                dao.connect();
-                List<Carona> listaCarona;
-                listaCarona = dao.ultimasCaronas();
-                ServletContext context= getServletContext();
-                RequestDispatcher rd= context.getRequestDispatcher("/erro_carona.jsp");
-                request.setAttribute("caronas", listaCarona);
-                rd.forward(request, response);
-            } catch (CaronaDAOException ex1) {
-                Logger.getLogger(CadastroOfertaCaronaServlet.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            Logger.getLogger(BuscaCaronaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {            
+            out.close();
         }
     }
 

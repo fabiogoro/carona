@@ -30,31 +30,26 @@
             <div class="navbar" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="#">Vai de Carona!</a>
                 </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="entrando.jsp">Entrar</a>
+                            <a href="http://www.facebook.com/vaidecaronanoface">
+                                Curta nossa página no facebook</a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>
-
+            
             <!-- Jumbotron -->
             <div class="jumbotron">
                 <h1>Vai viajar?</h1>
                 <p class="lead">Procure sua carona com a gente! Carona é mais conforto, menos poluição e mais amizades!
-                <br>O <b>Vai de Carona</b> é a forma mais pratica de encontrar e compartilhar sua carona!</p>
-                <p><a class="btn btn-large btn-success" href="entrando.jsp">Comece já!</a></p>
+                <br>O <b>Vai de Carona</b> é a forma mais pratica de encontrar e compartilhar sua carona!
+                <br><span id="usuarios"></span><span id ="caronas"></span></p>
+                <p><a class="btn btn-large btn-success" href="CaronasIndexServlet">Faça o teste!</a></p>
             </div>
 
 
@@ -72,7 +67,8 @@
                     </div>
                     <div class="col-lg-4">
                         <h2>Teste já!</h2>
-                        <p>Veja como funciona, cadastre ou encontre sua carona. Nos dê sua opinião e nos ajude a construir um site da forma como você precisa.</p>
+                        <p>Veja como funciona, cadastre ou encontre sua carona. Nos dê sua opinião e nos ajude a construir um site da forma como você precisa. 
+                            <a href="https://docs.google.com/forms/d/1O1JdqLhtbSDs3DTBRLqIFtpeU0Z2AQOKoOIJrr5-ok8/viewform">Responda a pesquisa!</a></p>
                     </div>
                 </div>
 
@@ -84,5 +80,24 @@
 
         </div> <!-- /container -->
         
+        <script>
+            $(document).ready(function() {
+//                $.ajax({
+//                    type: "GET",
+//                    url: "ContaUsuarioServlet",
+//                    dataType: "html"
+//                }).done(function(data){
+//                    $('#usuarios').html(data);
+//                }); 
+//                
+//                $.ajax({
+//                    type: "GET",
+//                    url: "ContaCaronasServlet",
+//                    dataType: "html"
+//                }).done(function(data){
+//                    $('#caronas').html(data);
+//                }); 
+            });
+        </script>
     </body>
 </html>

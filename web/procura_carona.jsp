@@ -64,7 +64,8 @@
 
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Olá! Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! Responda essa <a href="#">pesquisa de opinião.</a>
+            <strong>Olá! Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! 
+            Responda essa <a href="https://docs.google.com/forms/d/1O1JdqLhtbSDs3DTBRLqIFtpeU0Z2AQOKoOIJrr5-ok8/viewform">pesquisa de opinião.</a>
         </div>
 
 
@@ -75,76 +76,82 @@
                     <label class="sr-only" for="partida">Saindo de...</label>
                     <select name="origem" class="form-control" id="partida">
                         <option>Saindo de...</option>
+                        <option>Araras</option>
                         <option>Barueri</option>
                         <option>Bauru</option>
                         <option>Campinas</option>
-                        <option>Carapicuíba</option>
+                        <option>Capivari</option>
+                        <option>Carapicuiba</option>
                         <option>Diadema</option>
                         <option>Embu</option>
                         <option>Franca</option>
-                        <option>Guarujá</option>
+                        <option>Guaruja</option>
                         <option>Guarulhos</option>
                         <option>Itaquaquecetuba</option>
-                        <option>Jundiaí</option>
+                        <option>Jundiai</option>
                         <option>Limeira</option>
-                        <option>Marília</option>
+                        <option>Marilia</option>
                         <option>Mauá</option>
                         <option>Mogi das Cruzes</option>
                         <option>Osasco</option>
                         <option>Piracicaba</option>
                         <option>Praia Grande</option>
-                        <option>Ribeirão Preto</option>
-                        <option>Santo André</option>
+                        <option>Ribeirao Preto</option>
+                        <option>Rio Claro</option>
+                        <option>Santo Andre</option>
                         <option>Santos</option>
-                        <option>São Bernardo do Campo</option>
-                        <option>São Carlos</option>
-                        <option>São José do Rio Preto</option>
-                        <option>São José dos Campos</option>
-                        <option>São Paulo</option>
-                        <option>São Vicente</option>
+                        <option>Sao Bernardo do Campo</option>
+                        <option>Sao Carlos</option>
+                        <option>Sao Jose do Rio Preto</option>
+                        <option>Sao Jose dos Campos</option>
+                        <option>Sao Paulo</option>
+                        <option>Sao Vicente</option>
                         <option>Sorocaba</option>
-                        <option>Sumaré</option>
+                        <option>Sumare</option>
                         <option>Suzano</option>
-                        <option>Taboão da Serra</option>
-                        <option>Taubaté</option>
+                        <option>Taboao da Serra</option>
+                        <option>Taubate</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="destino">Indo para...</label>
                     <select name="destino" class="form-control" id="destino"  placeholder="Indo para...">
                         <option>Indo para...</option>
+                        <option>Araras</option>
                         <option>Barueri</option>
                         <option>Bauru</option>
                         <option>Campinas</option>
-                        <option>Carapicuíba</option>
+                        <option>Capivari</option>
+                        <option>Carapicuiba</option>
                         <option>Diadema</option>
                         <option>Embu</option>
                         <option>Franca</option>
-                        <option>Guarujá</option>
+                        <option>Guaruja</option>
                         <option>Guarulhos</option>
                         <option>Itaquaquecetuba</option>
-                        <option>Jundiaí</option>
+                        <option>Jundiai</option>
                         <option>Limeira</option>
-                        <option>Marília</option>
+                        <option>Marilia</option>
                         <option>Mauá</option>
                         <option>Mogi das Cruzes</option>
                         <option>Osasco</option>
                         <option>Piracicaba</option>
                         <option>Praia Grande</option>
-                        <option>Ribeirão Preto</option>
-                        <option>Santo André</option>
+                        <option>Ribeirao Preto</option>
+                        <option>Rio Claro</option>
+                        <option>Santo Andre</option>
                         <option>Santos</option>
-                        <option>São Bernardo do Campo</option>
-                        <option>São Carlos</option>
-                        <option>São José do Rio Preto</option>
-                        <option>São José dos Campos</option>
-                        <option>São Paulo</option>
-                        <option>São Vicente</option>
+                        <option>Sao Bernardo do Campo</option>
+                        <option>Sao Carlos</option>
+                        <option>Sao Jose do Rio Preto</option>
+                        <option>Sao Jose dos Campos</option>
+                        <option>Sao Paulo</option>
+                        <option>Sao Vicente</option>
                         <option>Sorocaba</option>
-                        <option>Sumaré</option>
+                        <option>Sumare</option>
                         <option>Suzano</option>
-                        <option>Taboão da Serra</option>
-                        <option>Taubaté</option>
+                        <option>Taboao da Serra</option>
+                        <option>Taubate</option>
                     </select>
                 </div>
                 <div class="form-group">

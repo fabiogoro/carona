@@ -9,10 +9,27 @@ package model;
  * @author Fabio
  */
 public class Carona {
-    private String usuario;
+    private Usuario usuario;
     private String destino;
     private String origem;
     private String data;
+    private String horario;
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public String getDestino() {
         return this.destino;
@@ -36,14 +53,6 @@ public class Carona {
 
     public void setData(String dataString) {
         this.data = dataString;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String nomeUsuario) {
-        this.usuario = nomeUsuario;
     }
     
 }

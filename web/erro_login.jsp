@@ -113,7 +113,6 @@
         
         <script>
             $(document).ready(function() {
-                $('.alert').hide();
                 
                 $('#usuariocad').keyup(function(){
                     $.ajax({

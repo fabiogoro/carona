@@ -10,6 +10,31 @@ $(document).ready(function() {
     });
 });
 
+function conectar(){
+    FB.getLoginStatus(pegaDados);
+}
+
+function pegaDados(response){
+    if(response.status === 'connected'){
+        FB.api('/me', function(resp) {
+            $('#nome').val(resp.name);
+            $('#link').val(resp.link);
+            $('#form').submit(); 
+        });
+    } else {
+        FB.login();
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+            if(response.status === 'connected'){
+                FB.api('/me', function(resp) {
+                    $('#nome').val(resp.name);
+                    $('#link').val(resp.link);
+                    $('#form').submit(); 
+                });
+            }
+        });
+    }
+}
+
 function interligar(){
     FB.getLoginStatus(login);
 }

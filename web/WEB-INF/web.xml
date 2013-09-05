@@ -28,6 +28,18 @@
         <servlet-name>VerificaUsuarioServlet</servlet-name>
         <servlet-class>control.VerificaUsuarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContaUsuarioServlet</servlet-name>
+        <servlet-class>control.ContaUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContaCaronasServlet</servlet-name>
+        <servlet-class>control.ContaCaronasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CaronasIndexServlet</servlet-name>
+        <servlet-class>control.CaronasIndexServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroOfertaCaronaServlet</servlet-name>
         <url-pattern>/CadastroOfertaCaronaServlet</url-pattern>
@@ -55,6 +67,18 @@
     <servlet-mapping>
         <servlet-name>VerificaUsuarioServlet</servlet-name>
         <url-pattern>/VerificaUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContaUsuarioServlet</servlet-name>
+        <url-pattern>/ContaUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContaCaronasServlet</servlet-name>
+        <url-pattern>/ContaCaronasServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CaronasIndexServlet</servlet-name>
+        <url-pattern>/CaronasIndexServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

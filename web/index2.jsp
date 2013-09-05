@@ -1,18 +1,17 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="model.Carona"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="model.Usuario"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Carona"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Site de caronas feito por alunos da UFSCar Sorocaba">
+        <meta name="author" content="Vai de Carona!">
 
         <title>Vai de Carona!</title>
 
@@ -21,15 +20,21 @@
 
         <!-- Custom styles for this template -->
         <link href="default.css" rel="stylesheet">
-
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     </head>
 
     <body>
         <div id="fb-root"></div>
-        <script>var logado = true;</script>
+        <script src="js/holder.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+        <script src="js/facebook.js"></script>
+        <script>var logado = false;</script>
+        
+
 
         <div class="container">
+
             <div class="navbar" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -48,7 +53,7 @@
             
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Carona cadastrada! Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! 
+                <strong>Gostou da ideia?</strong> Nos dê sua opinião para podermos melhorar nosso trabalho! 
                 Responda essa <a href="https://docs.google.com/forms/d/1O1JdqLhtbSDs3DTBRLqIFtpeU0Z2AQOKoOIJrr5-ok8/viewform">pesquisa de opinião.</a>
             </div>
             
@@ -58,7 +63,14 @@
                         <p class="pull-right visible-xs">
                             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Oferecer Nova</button>
                         </p>
-                        <div class="row col-lg-12"><h2 class="text-center visible-lg visible-md">Últimas Caronas Oferecidas</h2></div>
+                        <div class="row"><h2 class="text-center visible-lg visible-md">Últimas Caronas Oferecidas</h2></div>
+<!--                        <div class="row">
+                            <form action="BuscaRapidaServlet" class="" id="form" role="form">
+                                <label class="sr-only" for="partida">Busca Rápida</label>
+                                <input name="busca" type="text" class="form-control" placeholder="Busca Rápida">
+                                <button type="submit" class="invisible" onclick="busca(); return false;"></button>
+                            </form>
+                        </div>-->
                         <div class="row">
                                 <%
                                     List<Carona> listaUsuario = (List<Carona>) request.getAttribute("caronas");
@@ -77,10 +89,11 @@
                                     <b><%=user.getNome()%> </b>
                                     <br><%=fmt.format(data)%> <%if(c.getHorario()!=null)%><%=c.getHorario()%>
                                     <br>Saindo de: <%=c.getOrigem()%>
-                                    <br>Indo para: <%=c.getDestino()%>.
+                                    <br>Indo para: <%=c.getDestino()%>
                                     <br> <a class="btn btn-xs btn-default" 
                                             href="<%=user.getLink()%>">
-                                        Ver facebook &raquo;</a></p>
+                                        Ver facebook &raquo;</a>
+                                </p>
                             </div>
                                 <% }}%>
                         </div>
@@ -177,37 +190,24 @@
                                 <div class="form-group">
                                     <input name="horario" type="text" class="form-control" placeholder="Horário">
                                 </div>
+                                <input type="hidden" id="nome" name="nome">
+                                <input type="hidden" id="link" name="link">
+                                <span class="text-info text-right"><small>*É necessário se conectar com o facebook para cadastrar caronas.</small></span>
                                 <button type="submit" class="btn btn-success btn-lg pull-right" onclick="envia(); return false;">Oferecer Carona</button>
                             </form>
                         </div><!--/.well -->
                     </div><!--/span-->
                 </div><!--/row-->
-
-<!--            <div class="body-content">
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6">
-
-                        <h2>Cadastro efetuado!</h2>
-                        <%
-                            Carona c = (Carona) request.getAttribute("carona");
-                        %>
-                        <p>Você cadastrou uma carona para o dia <b><%=c.getData()%></b>, saindo de <%=c.getOrigem()%>, indo para <%=c.getDestino()%>.</p>
-                    </div>
-                    <div class="col-lg-3"></div>
-                </div>
-
-            </div> /.body-content -->
+            </div> <!-- /container -->
+                
+            <div class="footer">
+                <p>&copy; Vai de Carona (Beta) 2013</p>
+            </div>
 
         </div> <!-- /container -->
         
-        <div class="footer container">
-            <p>&copy; Vai de Carona (Beta) 2013</p>
-        </div>
-
-        <script src="js/holder.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/facebook.js"></script>
+        
+        
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script>
@@ -216,6 +216,10 @@
                     $('.row-offcanvas').toggleClass('active');
                 });
             });
+            
+            function busca(){
+                alert('A busca ainda está em construção. Nos desculpe.');
+            }
             
             function envia(){
                 if($('#partida option:selected').text()===$('#destino option:selected').text()){
